@@ -43,17 +43,25 @@ public class AutoMain_FEB {
     
     public void moveBackward() {
         backleftmotor.setPower(-1);
-        frontleftmotor.setPower(1);
-        back
+        backrightmotor.setPower(-1);
+        frontleftmotor.setPower(-1);
+        frontrightmotor.setPower(-1);
     }
     
     public void strafeLeft() {
-        
+        backleftmotor.setPower(-1);
+        frontleftmotor.setPower(1);
+        backrightmotor.setPower(1);
+        frontrightmotor.setPower(-1);
     }
     
     public void strafeRight() {
-        
+        backleftmotor.setPower(1);
+        frontleftmotor.setPower(-1);
+        backrightmotor.setPower(-1);
+        frontrightmotor.setPower(1);
     }
     
     
 }
+
