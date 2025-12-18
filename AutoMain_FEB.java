@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp(name = "Auto February 2026")
 
 
-public class AutoMain_FEB {
+public class AutoMain_FEB extends LinearOpMode {
     private DcMotor backleftmotor;
     private DcMotor frontrightmotor;
     private DcMotor frontleftmotor;
@@ -64,4 +64,5 @@ public class AutoMain_FEB {
     
     
 }
+
 
