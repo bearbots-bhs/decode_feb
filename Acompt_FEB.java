@@ -19,6 +19,20 @@ public class Acompt_FEB extends LinearOpMode {
     private DcMotor backrightmotor;
 
     // todo: write your code here
+    private double getrot()
+    {
+        double out = 0;
+        if (gamepad1.left_trigger > 0.1)
+        {
+            out = -0.5;
+
+        }
+        else if (gamepad1.right_trigger > 0.1)
+        {
+            out = 0.5;
+        }
+        
+    }
     
     public void runOpMode() {
         backrightmotor = hardwareMap.get(DcMotor.class, "back right motor");
@@ -29,9 +43,22 @@ public class Acompt_FEB extends LinearOpMode {
         waitForStart();
         
         while (opModeIsActive()) {
-            x = gamepad1.right_stick_x;
+            double x = gamepad1.left_stick_x;
+            double y = gamepad1.left_stick_y;
+            double rx = getrot();
+            frontleftmotor.setPower((y-x+rx)/2);
+            frontrightmotor.setPower((y+x-rx)/2);
+            backleftmotor.setPower((y+x+rx)/2);
+            backrightmotor.setPower((y-x-rx)/2);
+
+            
+            
+            
+            
+            
         }
     }
     
 }
+
 
