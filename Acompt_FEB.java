@@ -1,3 +1,7 @@
+// Teleop controls
+
+
+
 package org.firstinspires.ftc.teamcode.feb2026_lynn;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -31,6 +35,7 @@ public class Acompt_FEB extends LinearOpMode {
         {
             out = 0.5;
         }
+        return out;
         
     }
     
@@ -60,5 +65,4 @@ public class Acompt_FEB extends LinearOpMode {
     }
     
 }
-
 
