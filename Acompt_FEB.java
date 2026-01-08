@@ -17,9 +17,9 @@ public class Acompt_FEB extends LinearOpMode {
     private DcMotor frontrightmotor;
     private DcMotor frontleftmotor;
     private DcMotor backrightmotor;
-    private DcMotor fRubberWheel; // front rubber wheel
-    private DcMotor bRubberWheel; // Back rubber wheel
-    private DcMotor launch; /launch motor
+    private DcMotor fRubberWheel;
+    private DcMotor bRubberWheel;
+    private DcMotor launch;
 
     @Override
     public void runOpMode() {
@@ -27,8 +27,8 @@ public class Acompt_FEB extends LinearOpMode {
         backleftmotor = hardwareMap.get(DcMotor.class, "back left motor");
         frontrightmotor = hardwareMap.get(DcMotor.class, "front right motor");
         frontleftmotor = hardwareMap.get(DcMotor.class, "front left motor");
-        fRubberWheel = hardwareMap.get(DcMotor.class, "f rubber wheel");
-        bRubberWheel = hardwareMap.get(DcMotor.class, "b rubber wheel");
+        fRubberWheel = hardwareMap.get(DcMotor.class, "front wheel");
+        bRubberWheel = hardwareMap.get(DcMotor.class, "back wheel");
         launch = hardwareMap.get(DcMotor.class, "launch");
         
         waitForStart();
@@ -130,6 +130,7 @@ public class Acompt_FEB extends LinearOpMode {
         return out;
     }
 }
+
 
 
 
