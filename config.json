@@ -9,7 +9,7 @@
     },
     {
       "name": "AutoMain_FEB.java",
-      "task": "Autonomous mode; uses AprilTag orientation for autoshoot and scans the obelisk to get to the correct combination"
+      "task": "Autonomous mode; uses AprilTag orientation for autoshoot and uses ElapsedTime to position for intaking the artifacts"
     }
   ]
 ]
