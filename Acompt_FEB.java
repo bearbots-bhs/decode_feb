@@ -17,6 +17,9 @@ public class Acompt_FEB extends LinearOpMode {
     private DcMotor frontrightmotor;
     private DcMotor frontleftmotor;
     private DcMotor backrightmotor;
+    private DcMotor fRubberWheel; // front rubber wheel
+    private DcMotor bRubberWheel; // Back rubber wheel
+    private DcMotor launch; /launch motor
 
     @Override
     public void runOpMode() {
@@ -24,6 +27,9 @@ public class Acompt_FEB extends LinearOpMode {
         backleftmotor = hardwareMap.get(DcMotor.class, "back left motor");
         frontrightmotor = hardwareMap.get(DcMotor.class, "front right motor");
         frontleftmotor = hardwareMap.get(DcMotor.class, "front left motor");
+        fRubberWheel = hardwareMap.get(DcMotor.class, "f rubber wheel");
+        bRubberWheel = hardwareMap.get(DcMotor.class, "b rubber wheel");
+        launch = hardwareMap.get(DcMotor.class, "launch");
         
         waitForStart();
         
@@ -37,16 +43,21 @@ public class Acompt_FEB extends LinearOpMode {
                 y = -gamepad2.left_stick_y;
             }
             
-            double rx = getrot();
+            double rx = getRot();
             frontleftmotor.setPower((y-x+rx)/2);
             frontrightmotor.setPower((y+x-rx)/2);
             backleftmotor.setPower((y+x+rx)/2);
             backrightmotor.setPower((y-x-rx)/2);
+            fRubberWheel.setPower(getFront());
+            bRubberWheel.setPower(getBack());
+            launch.setPower(getLaunch());
+
+            
 
         }
     }
 
-    private double getrot()
+    private double getRot()
     {
         double out = 0;
         if (gamepad1.left_trigger > 0.1)
@@ -61,6 +72,64 @@ public class Acompt_FEB extends LinearOpMode {
         return out;
         
     }
+    private double getFront()
+    {
+        double out = 1;
+        double mode = 0;
+        if (gamepad1.b)
+        {
+            mode = mode+1;
+            mode = mode %2;
+        }
+        if (mode == 1)
+        {
+            out = 0;
+        }    
+        else
+        {
+            out = 1;
+        }
+        return out;
+    }
+    private double getBack()
+    {
+        double out = 1;
+        double mode = 0;
+        if (gamepad1.a)
+        {
+            mode = mode+1;
+            mode = mode %2;
+        }
+        if (mode == 1)
+        {
+            out = 0;
+        }    
+        else
+        {
+            out = 1;
+        }
+        return out;
+    }
+    private double getLaunch()
+    {
+        double out = 1;
+        double mode = 0;
+        if (gamepad1.x)
+        {
+            mode = mode+1;
+            mode = mode %2;
+        }
+        if (mode == 1)
+        {
+            out = 0;
+        }    
+        else
+        {
+            out = 1;
+        }
+        return out;
+    }
 }
+
 
 
