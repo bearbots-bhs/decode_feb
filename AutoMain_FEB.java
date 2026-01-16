@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 //import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous(name = "Auto February 2026")
+@Autonomous(name = "Auto January 2026 - Red")
 
 public class AutoMain_FEB extends LinearOpMode {
     private DcMotor backleftmotor;
@@ -116,3 +116,4 @@ public class AutoMain_FEB extends LinearOpMode {
     }
     
 }
+
