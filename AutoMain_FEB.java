@@ -4,11 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-//import com.qualcomm.robotcore.hardware.CRServo; (commented out for now, since we aren't using CRServo)
+//import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name = "Auto February 2026")
-
 
 public class AutoMain_FEB extends LinearOpMode {
     private DcMotor backleftmotor;
@@ -30,6 +29,12 @@ public class AutoMain_FEB extends LinearOpMode {
         fRubberWheel = hardwareMap.get(DcMotor.class, "front wheel");
         bRubberWheel = hardwareMap.get(DcMotor.class, "back wheel");
         launch = hardwareMap.get(DcMotor.class, "launch");
+
+        // We set these based on how the motors are physically installed
+        backrightmotor.setDirection(DcMotor.Direction.REVERSE);
+        backleftmotor.setDirection(DcMotor.Direction.REVERSE);
+        frontrightmotor.setDirection(DcMotor.Direction.FORWARD);
+        frontleftmotor.setDirection(DcMotor.Direction.FORWARD);
         
         waitForStart();
         if (opModeIsActive()) {
@@ -110,14 +115,4 @@ public class AutoMain_FEB extends LinearOpMode {
 
     }
     
-    
 }
-
-
-
-
-
-
-
-
-
