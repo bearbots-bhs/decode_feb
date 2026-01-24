@@ -103,6 +103,55 @@ public class Acompt_FEB extends LinearOpMode {
                 toggleLock_invert = false;
             }
 
+            if (gamepad1.dpad_up) {
+                frontleftmotor.setPower(0.5);
+                frontrightmotor.setPower(0.5);
+                backrightmotor.setPower(0.5);
+                backleftmotor.setPower(0.5);
+            }
+            else if (gamepad1.dpad_down) {
+                frontleftmotor.setPower(-0.5);
+                frontrightmotor.setPower(-0.5);
+                backrightmotor.setPower(-0.5);
+                backleftmotor.setPower(-0.5);
+            }
+            else if (gamepad1.dpad_left) {
+                frontleftmotor.setPower(0.5);
+                frontrightmotor.setPower(-0.5);
+                backrightmotor.setPower(0.5);
+                backleftmotor.setPower(-0.5);
+            }
+            else if (gamepad1.dpad_right) {
+                frontleftmotor.setPower(-0.5);
+                frontrightmotor.setPower(0.5);
+                backrightmotor.setPower(-0.5);
+                backleftmotor.setPower(0.5);
+            }
+            else if (gamepad2.dpad_up) {
+                frontleftmotor.setPower(0.5);
+                frontrightmotor.setPower(0.5);
+                backrightmotor.setPower(0.5);
+                backleftmotor.setPower(0.5);
+            }
+            else if (gamepad2.dpad_down) {
+                frontleftmotor.setPower(-0.5);
+                frontrightmotor.setPower(-0.5);
+                backrightmotor.setPower(-0.5);
+                backleftmotor.setPower(-0.5);
+            }
+            else if (gamepad2.dpad_left) {
+                frontleftmotor.setPower(0.5);
+                frontrightmotor.setPower(-0.5);
+                backrightmotor.setPower(0.5);
+                backleftmotor.setPower(-0.5);
+            }
+            else if (gamepad2.dpad_right) {
+                frontleftmotor.setPower(-0.5);
+                frontrightmotor.setPower(0.5);
+                backrightmotor.setPower(-0.5);
+                backleftmotor.setPower(0.5);
+            }
+
             if (invert == 1) {
                 fRubberWheel.setDirection(DcMotor.Direction.REVERSE);
                 bRubberWheel.setDirection(DcMotor.Direction.REVERSE);
@@ -289,6 +338,7 @@ public class Acompt_FEB extends LinearOpMode {
     }
     */
 }
+
 
 
 
