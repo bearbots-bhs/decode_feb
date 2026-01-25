@@ -241,9 +241,7 @@ public class Acompt_FEB extends LinearOpMode {
            }
         }
         else {
-            if (!gamepad1.x && !gamepad1.a && !gamepad2.x && !gamepad2.a) {
-                toggleLock_intake = false;
-            }
+            toggleLock_intake = false;
         }
 
         if (toggle_intake) {
@@ -267,9 +265,7 @@ public class Acompt_FEB extends LinearOpMode {
            }
         }
         else {
-            if (!gamepad1.x && !gamepad1.a && !gamepad2.x && !gamepad2.a) {
-                toggleLock_launch = false;
-            }
+            toggleLock_launch = false;
         }
 
         if (toggle_launch) {
@@ -341,6 +337,7 @@ public class Acompt_FEB extends LinearOpMode {
     }
     */
 }
+
 
 
 
