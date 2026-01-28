@@ -6,6 +6,13 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 //import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.controls.ExposureControl;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.controls.GainControl;
+import org.firstinspires.ftc.vision.VisionPortal;
+import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
+import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
+import java.util.*;
 
 
 @TeleOp(name = "ACompt Jan 2026")
@@ -19,6 +26,9 @@ public class Acompt_FEB extends LinearOpMode {
     private DcMotor fRubberWheel; // Front Rubber Band Intake Wheel
     private DcMotor bRubberWheel; // Back Rubber Band Intake Wheel
     private DcMotor launch; // Launch Rubber Wheel set with Gearbox
+    private ArrayList<AprilTagDetection> detections = new ArrayList<AprilTagDetection>();
+    private AprilTagProcessor tag;
+    private VisionPortal portal;
     
     int mode = 0; // Mode is 0 for hold button down; Mode is 1 for toggle
     int inverted = 0; // 0 and 1 correspond to false and true
@@ -46,6 +56,12 @@ public class Acompt_FEB extends LinearOpMode {
         backleftmotor.setDirection(DcMotor.Direction.REVERSE);
         frontrightmotor.setDirection(DcMotor.Direction.FORWARD);
         frontleftmotor.setDirection(DcMotor.Direction.FORWARD);
+        initAprilTag();
+        detections = tag.getDetections();
+        for (AprilTagDetection detection : detections)
+        {
+         ;   
+        }    
         
         waitForStart();
         
@@ -181,6 +197,13 @@ public class Acompt_FEB extends LinearOpMode {
             telemetry.update();
 
         }
+    }
+    private void initAprilTag()
+    {
+        tag = new AprilTagProcessor.Builder().build();
+        portal = new VisionPortal.Builder().setCamera(HardwareMap.get(WebcamName.class,"Webcam 1")).addProcessor(tag).build();
+        
+        
     }
 
     private double getRot()
@@ -337,3 +360,4 @@ public class Acompt_FEB extends LinearOpMode {
     }
     */
 }
+
